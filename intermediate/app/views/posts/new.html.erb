@@ -1,0 +1,19 @@
+<h1> Create a new post</h1>
+
+<%= form_for :post, url: posts_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'All posts', posts_path, data: { confirm: "You'll lose your data. Are you sure?" } %>
