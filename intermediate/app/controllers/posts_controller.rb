@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :create, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -34,4 +36,8 @@ private
     params.require(:post).permit(:title, :author, :content, :created_at)
   end
 
+  def original_author(post)
+    current_user == post.user
+  end
+  helper_method :original_author
 end

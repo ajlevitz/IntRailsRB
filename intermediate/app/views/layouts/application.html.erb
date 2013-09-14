@@ -11,18 +11,24 @@
     <li class="active">
       <a href="/">Alyssa's Site</a>
     </li>
-    <li>
-      <a href="posts">Message board</a>
-    </li>
-    <li class="dropdown pull-right">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <%= current_user.email %>
-        <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu">
-        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-      </ul>
-    </li>
+    <% if current_user != nil %>
+      <li>
+        <a href="/posts">Message board</a>
+      </li>
+      <li class="dropdown pull-right">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <%= current_user.email %>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </li>
+    <% else %>
+      <li class="pull-right">
+        <a href="/">Log in</a>
+      </li>
+    <% end %>
   </ul>
 </div>
 <div id="messages">
