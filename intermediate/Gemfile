@@ -49,3 +49,6 @@ end
 
 #Use devise for auth
 gem 'devise'
+
+# Use Twitter bootstrap css for styles
+gem 'bootstrap-sass-rails'
