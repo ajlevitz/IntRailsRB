@@ -1,20 +1,24 @@
-<body >
-  <div id="header">
-    <ul class="nav nav-tabs navbar-fixed-top">
-      <li class="active">
-        <a href="#">Message Board</a>
-      </li>
-      <li class="dropdown pull-right">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <%= current_user.email %>
-          <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-        </ul>
-      </li>    
-    </ul>
-  </div>
+<div id="header">
+  <ul class="nav nav-tabs navbar-fixed-top">
+    <li class="active">
+      <a href="#">Message Board</a>
+    </li>
+    <li class="dropdown pull-right">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <%= current_user.email %>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<body style="padding-top:50px">
+  <p class="notice"><%= notice %></p>
+
+  <p class="alert"><%= alert %></p>
 
   <h1>Welcome to my site!</h1>
 
