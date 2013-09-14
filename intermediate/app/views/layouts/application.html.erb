@@ -6,7 +6,31 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<div id="header">
+  <ul class="nav nav-tabs navbar-fixed-top">
+    <li class="active">
+      <a href="/">Alyssa's Site</a>
+    </li>
+    <li>
+      <a href="posts">Message board</a>
+    </li>
+    <li class="dropdown pull-right">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <%= current_user.email %>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div id="messages">
+  <p class="notice"><%= notice %></p>
+
+  <p class="alert"><%= alert %></p>
+</div>
+<body style="margin:20px">
 
 <%= yield %>
 
