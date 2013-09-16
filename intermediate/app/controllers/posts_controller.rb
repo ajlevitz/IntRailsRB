@@ -24,6 +24,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
@@ -35,9 +39,4 @@ private
   def post_params
     params.require(:post).permit(:title, :author, :content, :created_at)
   end
-
-  def original_author(post)
-    current_user == post.user
-  end
-  helper_method :original_author
 end

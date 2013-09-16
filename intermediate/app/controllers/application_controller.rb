@@ -11,4 +11,10 @@ protected
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email) }
   end
 
+private
+
+  def original_author(post)
+    current_user == post.user
+  end
+  helper_method :original_author
 end
