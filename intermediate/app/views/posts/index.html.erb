@@ -9,17 +9,24 @@
 
   <% @posts.each do |post| %>
     <tr>
-      <td><%= post.title %></td>
-      <td><%= post.user.email %></td>
+      <td><%= link_to post.title, post_path(post) %></td>
+      <td>
+        <div><%= post.user.email %></div>
+        <% if original_author(post) %>
+          <div><%= link_to 'View your posts', user_path(current_user) %></div>
+        <% else %>
+          <div><%= link_to 'View their posts', user_path(post.user) %></div>
+        <% end %>
+      </td>
       <td>
         <% if original_author(post) %>
           <%= link_to 'Delete', post_path(post),
                       method: :delete, data: { confirm: 'Are you sure?' } %>
-          | Edit
+          | <%= link_to 'Edit', edit_post_path(post) %>
         <% end %>
       </td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to 'New post', new_post_path %>
+<%= link_to 'All users', users_path %> | <%= link_to 'New post', new_post_path %>
