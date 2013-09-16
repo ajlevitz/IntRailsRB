@@ -1,0 +1,5 @@
+<h1>Edit <%= @post.title %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'All posts', posts_path, data: { confirm: "You'll lose your data. Are you sure?" } %>

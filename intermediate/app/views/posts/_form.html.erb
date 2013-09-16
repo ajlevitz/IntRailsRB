@@ -1,5 +1,3 @@
-<h1>Create a new post</h1>
-
 <%= form_for :post, url: posts_path do |f| %>
 
   <% if @post.errors.any? %>
@@ -27,5 +25,3 @@
     <%= f.submit %>
   </p>
 <% end %>
-
-<%= link_to 'All posts', posts_path, data: { confirm: "You'll lose your data. Are you sure?" } %>
